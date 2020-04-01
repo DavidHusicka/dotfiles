@@ -1,0 +1,10 @@
+# Exclude everything.
+*
+
+# Adding important configs
+!/.gitignore
+!/.alacritty.yml
+!/.aliases
+!/.scripts/
+!/.scripts/epub.sh
+!/.scripts/present.sh
