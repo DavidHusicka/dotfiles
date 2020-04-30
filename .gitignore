@@ -6,5 +6,8 @@
 !/.alacritty.yml
 !/.aliases
 !/.scripts/
-!/.scripts/epub.sh
-!/.scripts/present.sh
+!/.config/i3/
+!/.config/polybar/
+!/.config/i3/config
+!/.config/polybar/config
+!/.vimrc

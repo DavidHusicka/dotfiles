@@ -1,18 +1,22 @@
 # Whatever I need
-alias epub='~/.scripts/epub.sh'
 alias flex='clear; neofetch; sleep 9999999'
-alias osu='xsetwacom set "HUION Huion Tablet Pen stylus" Area 10842 340 18436 4612; ~/Games/osu.AppImage; xsetwacom set "HUION Huion Tablet Pen stylus" Area 0 0 33020 20320'
 alias hdd='cd /mnt/4a2a9151-8f05-4326-ad0a-f3e087d86a6c'
-alias update='sudo apt update; sudo apt upgrade -y; sudo apt autoremove -y; sudo gem update; rustup update'
+alias work='cd /mnt/4a2a9151-8f05-4326-ad0a-f3e087d86a6c/Work'
+alias school='cd /mnt/4a2a9151-8f05-4326-ad0a-f3e087d86a6c/Work/school'
 alias color='colortest-8'
 alias aliases='bat ~/.aliases'
 alias caliases='vim ~/.aliases'
 alias lh='ls -Ah'
 alias top='ytop'
 alias clr='clear'
+alias bigtext='clear; figlet'
 alias linuxinstalldate='sudo tune2fs -l /dev/sda1 | grep "Filesystem created:"'
-alias logout='pkill sowm'
-alias present='~/.scripts/present.sh'
+alias logout='i3-msg exit'
+alias polyconf='vim ~/.config/polybar/config'
+alias i3conf='vim ~/.config/i3/config'
+alias makerunnable='chmod +x'
+alias mr='chmod +x'
+alias home='cd ~'
 
 # git
 alias g='git'
@@ -22,3 +26,28 @@ alias grc='git rebase --continue'
 alias grs='git rebase --skip'
 alias ga='git add'
 alias gc='git commit -m'
+
+cdls ()
+{
+    \cd "$@" && ls
+}
+
+epub ()
+{
+    \pandoc -f epub -t html "$@" | w3m -T text/html
+}
+
+osu ()
+{
+    \xsetwacom set "HUION Huion Tablet Pen stylus" Area 10842 340 18436 4612
+    ~/Games/osu.AppImage "$@"
+    xsetwacom set "HUION Huion Tablet Pen stylus" Area 0 0 33020 20320
+}
+
+present ()
+{
+    FILE_RANDOMIZER=$((1 + RANDOM % 1000))
+    pandoc "$@" -t beamer -o /tmp/"$@"-$FILE_RANDOMIZER.pdf
+    zathura -P 1 /tmp/"$@"-$FILE_RANDOMIZER.pdf
+    rm /tmp/"$@"-$FILE_RANDOMIZER.pdf
+}
