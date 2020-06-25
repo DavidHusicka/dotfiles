@@ -1,8 +1,8 @@
 # Whatever I need
 alias flex='clear; neofetch; sleep 9999999'
-alias hdd='cd /mnt/4a2a9151-8f05-4326-ad0a-f3e087d86a6c'
-alias work='cd /mnt/4a2a9151-8f05-4326-ad0a-f3e087d86a6c/Work'
-alias school='cd /mnt/4a2a9151-8f05-4326-ad0a-f3e087d86a6c/Work/school'
+alias hdd='cd ~/HDD'
+alias work='cd ~/Work'
+alias school='cd ~/Work/school'
 alias color='colortest-8'
 alias aliases='bat ~/.aliases'
 alias caliases='vim ~/.aliases'
@@ -12,11 +12,25 @@ alias clr='clear'
 alias bigtext='clear; figlet'
 alias linuxinstalldate='sudo tune2fs -l /dev/sda1 | grep "Filesystem created:"'
 alias logout='i3-msg exit'
-alias polyconf='vim ~/.config/polybar/config'
-alias i3conf='vim ~/.config/i3/config'
+alias polyconf='nvim ~/.config/polybar/config'
+alias i3conf='nvim ~/.config/i3/config'
+alias kittyconf='nvim ~/.config/kitty/kitty.conf'
 alias makerunnable='chmod +x'
 alias mr='chmod +x'
 alias home='cd ~'
+alias asciivideo='DISPLAY= mpv --quiet --vo=caca'
+alias asciivideonocolor='DISPLAY= mpv --quiet --vo=aa'
+alias fd='fdfind'
+alias fed='fzf | xargs -r $EDITOR'
+alias vim='nvim'
+alias vi='nvim'
+alias vimconf='nvim ~/.vimrc'
+alias ra='setsid -f'
+alias xc='xxd -p'
+alias resize='mkdir resized; for file in *.jpg; do convert $file -resize 1240 resized/$file; done'
+alias fcl='fortune | cowsay | lolcat'
+# editor
+export EDITOR="nvim"
 
 # git
 alias g='git'
@@ -27,27 +41,3 @@ alias grs='git rebase --skip'
 alias ga='git add'
 alias gc='git commit -m'
 
-cdls ()
-{
-    \cd "$@" && ls
-}
-
-epub ()
-{
-    \pandoc -f epub -t html "$@" | w3m -T text/html
-}
-
-osu ()
-{
-    \xsetwacom set "HUION Huion Tablet Pen stylus" Area 10842 340 18436 4612
-    ~/Games/osu.AppImage "$@"
-    xsetwacom set "HUION Huion Tablet Pen stylus" Area 0 0 33020 20320
-}
-
-present ()
-{
-    FILE_RANDOMIZER=$((1 + RANDOM % 1000))
-    pandoc "$@" -t beamer -o /tmp/"$@"-$FILE_RANDOMIZER.pdf
-    zathura -P 1 /tmp/"$@"-$FILE_RANDOMIZER.pdf
-    rm /tmp/"$@"-$FILE_RANDOMIZER.pdf
-}

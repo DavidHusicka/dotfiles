@@ -31,8 +31,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Set wallpaper
-exec display -page 3200x -sample 3200x -window root /home/dave/Pictures/Wallpapers/MikuWP.png
+exec feh --bg-scale /home/dave/Pictures/Wallpapers/47ab85b.jpg
 
+exec export EDITOR="nvim"
 # Czech layout switching support
 exec setxkbmap -layout "us,cz" -option "grp:alt_shift_toggle"
 exec numlockx on
@@ -60,20 +61,20 @@ bindsym $mod+g exec firefox
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show drun -show-icons -icon-theme Pop -theme mikusidetab
+bindsym $mod+semicolon exec rofi -show drun -show-icons -icon-theme Pop -theme mikusidetab
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # start terminal
-bindsym $mod+t exec alacritty
+bindsym $mod+t exec kitty
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -82,10 +83,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -94,7 +95,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+c split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -103,7 +104,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+#bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -131,6 +132,10 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+set $wsa "a"
+set $wss "s"
+set $wsd "d"
+set $wsf "f"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -159,7 +164,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r reload #restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -171,15 +176,14 @@ client.unfocused        #202020 #202020 #ffffff #202020   #202020
 client.urgent           #ac4058 #ac4058 #ffffff #ac4058   #ac4058
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
+new_window 1pixel
+for_window [class="^.*"] border pixel 1
+
 # client.background       #ffffff
 
 # gaps
-#for_window [class=".*"] border pixel 0
 
-#gaps inner all set 20
-#gaps outer current plus 5
-#gaps horizontal current plus 40
-#gaps outer current toggle 60
+gaps inner 20
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -189,10 +193,14 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize grow left 10 px or 10 ppt
+        bindsym k resize grow up 10 px or 10 ppt
+        bindsym j resize grow down 10 px or 10 ppt
+        bindsym l resize grow right 10 px or 10 ppt
+        bindsym h resize shrink right 10 px or 10 ppt
+	bindsym k resize shrink down 10 px or 10 ppt
+	bindsym j resize shrink up 10 px or 10 ppt
+	bindsym l resize shrink left 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt

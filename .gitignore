@@ -5,9 +5,15 @@
 !/.gitignore
 !/.alacritty.yml
 !/.aliases
+!/.functions
 !/.scripts/
 !/.config/i3/
+!/.config/kitty/
 !/.config/polybar/
 !/.config/i3/config
 !/.config/polybar/config
+!/.config/kity/kitty.conf
 !/.vimrc
+!/.zsh
+!/.zshrc
+!/.zsh/davidhusicka.zsh-theme
