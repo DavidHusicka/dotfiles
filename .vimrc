@@ -22,10 +22,14 @@ Plug 'junegunn/fzf.vim'
 " Startify
 Plug 'mhinz/vim-startify'
 
+" Theme
+Plug 'crusoexia/vim-monokai'
+
 " Initialize plugin system
 call plug#end()
 
 syntax on
+colorscheme monokai
 
 set noswapfile
 set nobackup
@@ -54,10 +58,17 @@ set noshowmode
 set number relativenumber
 set t_Co=256
 
+" Whitespaces
+autocmd BufWritePre * %s/\s\+$//e
+
 " fzf
 nnoremap <C-p> :Files<CR>
 nnoremap <C-g> :GFiles<CR>
 nnoremap <C-f> :Rg!
+
+" Autocorrect
+vmap <leader>a <Plug>(coc-codeaction-selected)
+nmap <leader>a <Plug>(coc-codeaction-selected)
 
 " CoC
 " GoTo code navigation.
@@ -106,7 +117,7 @@ endif
 let g:coc_global_extensions = [
 	\ 'coc-go',
 	\ 'coc-tsserver',
-    \ 'coc-eslint',
+	\ 'coc-eslint',
 	\ 'coc-python',
 	\ 'coc-rust-analyzer',
 	\ 'coc-omnisharp',
@@ -120,5 +131,12 @@ let g:coc_global_extensions = [
 	\ 'coc-git',
 	\ 'coc-snippets',
 	\ 'coc-highlight',
-	\ 'coc-pairs'
+	\ 'coc-pairs',
+   \ 'coc-spell-checker'
 \ ]
+
+" Cargo run command
+nnoremap <silent> gr  :! cargo run -- main.rs<CR>
+
+" Exit on q
+nnoremap <silent> q  :q<CR>

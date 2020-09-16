@@ -4,12 +4,15 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/dave/.oh-my-zsh"
 
+# nnn previews
+export NNN_FIFO=/tmp/nnn.fifo
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="davidhusicka"
-ZSH_CUSTOM=".zsh"
+ZSH_CUSTOM=".config/zsh"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -73,8 +76,9 @@ plugins=(cargo rust sudo vi-mode zsh_reload hitokoto)
 
 source $ZSH/oh-my-zsh.sh
 
-source $HOME/.aliases
-source $HOME/.functions
+source $HOME/.config/zsh/aliases
+source $HOME/.config/zsh/functions
+source $HOME/.config/zsh/quitcd.bash_zsh
 
 #source $HOME/.welcome-image.sh
 

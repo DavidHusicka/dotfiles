@@ -1,0 +1,59 @@
+# Whatever I need
+alias flex='clear; neofetch; sleep 9999999'
+alias hdd='cd ~/HDD'
+alias work='cd ~/Work'
+alias school='cd ~/Work/school'
+alias color='colortest-8'
+alias aliases='cat ~/.config/zsh/aliases'
+alias caliases='vim ~/.config/zsh/aliases'
+alias functions='cat ~/.config/zsh/functions'
+alias cfunctions='vim ~/.config/zsh/functions'
+alias intervention='curl --no-progress-meter https://www.archlinux.org | html2text | grep intervention'
+alias html2text='html2text -utf8'
+alias htm2txt='html2text -utf8'
+alias lh='ls -Ah'
+alias top='ytop'
+alias clr='clear'
+alias bigtext='clear; figlet'
+alias systeminstalldate='sudo tune2fs -l /dev/sda1 | grep "Filesystem created:"'
+alias logout='i3-msg exit'
+alias lo='i3-msg exit'
+alias po='poweroff'
+alias polyconf='nvim ~/.config/polybar/config'
+alias i3conf='nvim ~/.config/i3/config'
+alias kittyconf='nvim ~/.config/kitty/kitty.conf'
+alias makerunnable='chmod +x'
+alias mr='chmod +x'
+alias home='cd ~'
+alias vns='vncserver -localhost no'
+alias sr='xrandr -s 1280x720' # Small resolution
+alias mpv='mpv --ytdl-format="bestvideo[ext=mp4][height<=?1080]+bestaudio[ext=m4a]"'
+alias asciivideo='DISPLAY= mpv --quiet --vo=caca'
+alias asciivideonocolor='DISPLAY= mpv --quiet --vo=aa'
+alias ttvid='mpv --vo=drm'
+alias ttimg='fbi' # Can't remember framebuffer image
+alias fd='fdfind'
+alias fed='fzf | xargs -r $EDITOR'
+alias vim='nvim'
+alias vi='nvim'
+alias vimconf='nvim ~/.vimrc'
+alias ra='setsid -f' # Run alone
+alias xc='xxd -p'
+alias resize='mkdir resized; for file in *.jpg; do convert $file -resize 1240 resized/$file; done' # Resize all pictures in folder and move resized pictures into subfollder
+alias fcl='fortune | cowsay | lolcat'
+alias rc='ps aux | head -n -1 | grep' # Runnin currently
+alias fc='ls -l | grep'
+alias gears='glxgears'
+alias xterm='xterm -fa "Fira Code" -fs 11 -bg grey8'
+# editor
+export EDITOR="nvim"
+
+# git
+alias g='git'
+alias gr='git rebase'
+alias gro='git rebase origin/master'
+alias grc='git rebase --continue'
+alias grs='git rebase --skip'
+alias ga='git add'
+alias gc='git commit -m'
+

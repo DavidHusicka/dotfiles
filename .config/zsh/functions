@@ -5,21 +5,30 @@ cls ()
     ls
 }
 
+wsite ()
+{
+	 curl --no-progress-meter "$@" | html2text -utf8 | less
+}
+
 epub ()
 {
-    pandoc -f epub -t html "$@" | w3m -T text/html
+    pandoc -f epub -t plain "$@" | less
+	 #html2text -utf8 | less
+	 #w3m -T text/html
 }
 
 osu ()
 {
     xsetwacom set "HUION Huion Tablet Pen stylus" Area 10842 340 18436 4612
+	 pkill compton
     ~/Games/osu.AppImage "$@"
     xsetwacom set "HUION Huion Tablet Pen stylus" Area 0 0 33020 20320
+	 setsid -f compton # Run alone
 }
 
 present ()
 {
-    FILE_RANDOMIZER=$((1 + RANDOM % 1000))
+    FILE_RANDOMIZER=$((1 + RANDOM % 10000))
     pandoc "$@" -t beamer -o /tmp/"$@"-$FILE_RANDOMIZER.pdf
     zathura -P 1 /tmp/"$@"-$FILE_RANDOMIZER.pdf
     rm /tmp/"$@"-$FILE_RANDOMIZER.pdf
@@ -31,4 +40,3 @@ loop ()
     $@
     done
 }
-

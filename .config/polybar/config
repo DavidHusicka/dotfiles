@@ -58,13 +58,15 @@ module-margin-right = 2
 ;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 ;font-2 = siji:pixelsize=10;1
 
+;font-3 = FiraCode:fontformat=truetype:size=8:antialias=false;0
 font-0 = Fira:pixelsize=10;1
-font-1 = FiraCode:fontformat=truetype:size=8:antialias=false;0
 font-2 = NotoSansCJKJP:pixelsize=10;1
+font-1 = NotoColorEmoji:scale=11
 
 modules-left = bspwm i3 xwindow
-modules-center = 
-modules-right = mpd filesystem xbacklight alsa pulseaudio xkeyboard memory cpu eth battery temperature date powermenu
+modules-center =
+modules-right = dave-bar
+;filesystem xbacklight alsa pulseaudio xkeyboard memory cpu eth battery temperature date powermenu
 ;wlan
 
 tray-position = right
@@ -107,6 +109,11 @@ cursor-scroll = ns-resize
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:172:...%
+
+[module/dave-bar]
+type = custom/script
+exec = dave-bar
+tail = true
 
 [module/xkeyboard]
 type = internal/xkeyboard
