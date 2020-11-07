@@ -27,13 +27,12 @@ alias mr='chmod +x'
 alias home='cd ~'
 alias vns='vncserver -localhost no'
 alias sr='xrandr -s 1280x720' # Small resolution
-alias mpv='mpv --ytdl-format="bestvideo[ext=mp4][height<=?1080]+bestaudio[ext=m4a]"'
+alias mpv='mpv --ytdl-format="bestvideo[ext=mp4][height<=?1440]+bestaudio[ext=m4a]"'
 alias asciivideo='DISPLAY= mpv --quiet --vo=caca'
 alias asciivideonocolor='DISPLAY= mpv --quiet --vo=aa'
 alias ttvid='mpv --vo=drm'
 alias ttimg='fbi' # Can't remember framebuffer image
 alias fd='fdfind'
-alias fed='fzf | xargs -r $EDITOR'
 alias vim='nvim'
 alias vi='nvim'
 alias vimconf='nvim ~/.vimrc'
@@ -45,6 +44,8 @@ alias rc='ps aux | head -n -1 | grep' # Runnin currently
 alias fc='ls -l | grep'
 alias gears='glxgears'
 alias xterm='xterm -fa "Fira Code" -fs 11 -bg grey8'
+alias ansiart='iconv -f 437'
+alias cb='cargo bloat --release --crates'
 # editor
 export EDITOR="nvim"
 

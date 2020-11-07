@@ -1,8 +1,14 @@
-feh --bg-scale /home/dave/Pictures/Wallpapers/47ab85b.jpg
+feh --bg-fill /home/dave/Pictures/Wallpapers/47ab85b.jpg
+pkill ibus
 setxkbmap -layout "us,cz_qwerty" -option "grp:alt_shift_toggle"
+# ibus-daemon -drx
 numlockx on
 pactl set-sink-mute @DEFAULT_SINK@ 0
+pactl upload-sample $HOME/Work/badapple/bell_s.wav x11-bell
+pactl load-module module-x11-bell sample=x11-bell display=$DISPLAY
+xset b 100
 
 # compton --config ~/.config/compton.conf -b
 setsid -f dave-bar --xsetroot processes volume ram-usage dateDDMM time24
 rustup update
+juchy-bot

@@ -40,3 +40,13 @@ loop ()
     $@
     done
 }
+
+wr ()
+{
+	 cd ~/Work/"$@"
+}
+
+osu2bell()
+{
+	 tail -n +$(expr $(grep -Fn HitObjects "$@" | cut -d : -f 1) + 1) "$@" | cut -d , -f 3
+}
